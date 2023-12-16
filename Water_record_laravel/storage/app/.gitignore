@@ -1,0 +1,5 @@
+!public/
+app/
+!.gitignore
+childrenType/
+parentType/

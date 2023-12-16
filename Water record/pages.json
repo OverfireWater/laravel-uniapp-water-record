@@ -1,0 +1,118 @@
+{
+	"pages": [{
+			"path": "pages/tabbar/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/tabbar/AddView/AddView",
+			"style": {
+				"navigationBarTitleText": "记一笔",
+				"app-plus": {
+					"softinputmode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/tabbar/person/person",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"app-plus": {
+					"softinputmode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/add-from/add-from",
+			"style": {
+				"navigationBarTitleText": "记一笔",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/ConsumeDetail/ConsumeDetail",
+			"style": {
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/PopupLogin/PopupLogin",
+			"style": {
+				"navigationBarTitleText": "登陆",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/ConsumeTypeFrom/ConsumeTypeFrom",
+			"style": {
+				"navigationBarTitleText": "分类管理",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/AppUpdate/AppUpdate",
+			"style": {
+				"navigationBarTitleText": "APP更新",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"background": "transparent",
+					"webviewBGTransparent": true, //webview的背景是否透明//配合background属性防止跳转闪白
+					"popGesture": "none" //禁止侧滑关闭（ios）
+				}
+			}
+		},
+		{
+			"path": "pages/MoreExpendPrice/MoreExpendPrice",
+			"style": {
+				"navigationBarTitleText": "流水",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/tabbar/Statement/Statement",
+			"style": {
+				"navigationBarTitleText": "报表",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path" : "pages/tabbar/Discover/Discover",
+			"style" : 
+			{
+				"navigationBarTitleText" : "发现",
+				"enablePullDownRefresh" : false
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#464343",
+		"selectedColor": "#5979c3",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/tabbar/index/index",
+				"text": "首页",
+				"iconPath": "/static/tabBarImg/water.png",
+				"selectedIconPath": "/static/tabBarImg/water(1).png"
+			},
+			{
+				"pagePath": "pages/tabbar/AddView/AddView",
+				"iconPath": "/static/tabBarImg/add.png",
+				"selectedIconPath": "/static/tabBarImg/add(1).png",
+				"text": "记一笔"
+			},
+			{
+				"pagePath": "pages/tabbar/person/person",
+				"text": "我的",
+				"iconPath": "static/tabBarImg/person.png",
+				"selectedIconPath": "static/tabBarImg/person(1).png"
+			}
+		]
+	}
+}
