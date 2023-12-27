@@ -11,9 +11,8 @@ if (process.env.NODE_ENV === 'development') {
 	// BASE_URL = 'http://127.0.0.1:7000'
 	// BASE_URL = 'http://192.168.217.200:7000'
 	BASE_URL = 'http://172.20.10.2:7000'
-	// BASE_URL = 'https://gzykzy.top:1011'
 } else {
-	BASE_URL = 'https://gzykzy.top:1011'
+	BASE_URL = 'https://water.api.gzykzy.top'
 }
 let URL = BASE_URL + BASE_API
 /**

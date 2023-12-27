@@ -105,17 +105,18 @@ class UserConsumePriceController extends Controller
 
     public function test()
     {
-        $columns = ['*'];
-        $pageName = 'page';
-        $limit = 5;
-        $page = 1;
-        $parentId = 1;
-        $paginateApp = parent_type::find($parentId)->w_type()->paginate($limit, $columns, $pageName, $page);
-        $this->msg = 'ok';
-        $array = array('total' => $paginateApp->total(), 'currentPage' => $paginateApp->currentPage(),
-            'limit' => $paginateApp->perPage(), 'lastPage' => $paginateApp->lastPage(), 'data' => $paginateApp->items());
-        $this->data = $array;
-        return $array;
+        return 'hello world';
+//        $columns = ['*'];
+//        $pageName = 'page';
+//        $limit = 5;
+//        $page = 1;
+//        $parentId = 1;
+//        $paginateApp = parent_type::find($parentId)->w_type()->paginate($limit, $columns, $pageName, $page);
+//        $this->msg = 'ok';
+//        $array = array('total' => $paginateApp->total(), 'currentPage' => $paginateApp->currentPage(),
+//            'limit' => $paginateApp->perPage(), 'lastPage' => $paginateApp->lastPage(), 'data' => $paginateApp->items());
+//        $this->data = $array;
+//        return $array;
     }
 
     // 获取用户的详细消费

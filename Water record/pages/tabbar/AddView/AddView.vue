@@ -1,6 +1,6 @@
 <template>
 	<view class="content" :class="{'active':active}">
-		<image class="logo" :class="{'active':active}" src="../../../static/logo.png"  mode="aspectFit"></image>
+		<image class="logo" :class="{'active':active}" src="../../../static/water_logo.png"  mode="aspectFit"></image>
 		<!-- #ifdef APP-PLUS || H5 -->
 			<web-icpInfo :data="1" style="position: absolute;top: 0;"></web-icpInfo>
 		<!-- #endif -->
