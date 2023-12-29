@@ -1,7 +1,6 @@
-<script>
-export default {};
-</script>
-
+<style lang="scss">
+	@import "@/uni_modules/uview-ui/index.scss";
+</style>
 <style lang="scss">
 /*每个页面公共css */
 .price-text-40 {

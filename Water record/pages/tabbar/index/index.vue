@@ -75,66 +75,9 @@
     </uni-card>
 
     <!--    本月分类支出-->
-    <uni-card padding="0" spacing="0" margin="5" v-show="userTypeExpendPrice.length">
-      <view class="card-container-type">
-        <view class="card-container-type-header">
-          <text class="card-container-type-header-month">{{ month }}月分类支出</text>
-          <view style="font-size: 14px">
-            <text style="padding-right: 10px">总支出</text>
-            <text class="red">{{ userMonthAllExpend }}</text>
-          </view>
-        </view>
-        <view class="card-container-type-content" v-for="(expendType,index) in processedExpendData"
-              :key="expendType.w_type.id">
-          <view class="card-container-type-content-left">
-            <text>{{ index + 1 }}</text>
-            <image :src="expendType.w_type.t_imgUrl" style="width: 25px;height: 25px"></image>
-            <text>{{ expendType.w_type.t_name }}</text>
-          </view>
-          <view class="card-container-type-content-center">
-            <view class="card-container-type-content-center-price font-14">
-              <text style="padding-right: 10px">{{ expendType.percent }}%
-              </text>
-              <text class="red">{{ expendType.price }}</text>
-            </view>
-            <progress style="width: 100%;padding-bottom: 10px" border-radius="10" active :duration="10"
-                      :percent="expendType.percent"
-                      stroke-width="5"></progress>
-          </view>
-        </view>
-      </view>
-    </uni-card>
+    <user-type-ranking :month="month" :user-month-all-price="userMonthAllExpend" :processed-consume-data="processedExpendData" v-if="processedExpendData.length"></user-type-ranking>
     <!--    本月分类收入-->
-    <uni-card padding="0" spacing="0" margin="5" v-show="userTypeIncomePrice.length">
-      <view class="card-container-type">
-        <view class="card-container-type-header">
-          <text class="card-container-type-header-month">{{ month }}月分类收入</text>
-          <view style="font-size: 14px">
-            <text style="padding-right: 10px">总收入</text>
-            <text class="blue">{{ userMonthAllIncome }}</text>
-          </view>
-        </view>
-        <view class="card-container-type-content" v-for="(incomeType,index) in processedIncomeData"
-              :key="incomeType.w_type.id">
-          <view class="card-container-type-content-left">
-            <text>{{ index + 1 }}</text>
-            <image :src="incomeType.w_type.t_imgUrl" style="width: 25px;height: 25px"></image>
-            <text>{{ incomeType.w_type.t_name }}</text>
-          </view>
-          <view class="card-container-type-content-center">
-            <view class="card-container-type-content-center-price font-14">
-              <text style="padding-right: 10px"> {{ incomeType.percent }}%
-              </text>
-              <text class="blue">{{ incomeType.price }}</text>
-            </view>
-            <progress style="width: 100%;padding-bottom: 10px" border-radius="10"
-                      :percent="incomeType.percent"
-                      :duration="10" active
-                      stroke-width="5"></progress>
-          </view>
-        </view>
-      </view>
-    </uni-card>
+    <user-type-ranking :month="month" :user-month-all-price="userMonthAllIncome" :processed-consume-data="processedIncomeData" v-if="processedIncomeData.length"></user-type-ranking>
 
     <!-- #ifdef H5  -->
     <web-icpInfo :isfoller="!!userTypeExpendPrice.length"></web-icpInfo>
@@ -145,9 +88,11 @@
 <script>
 
 import {mapActions, mapGetters, mapState} from 'vuex'
-
-let timer = ''
+import UserTypeRanking from "./UserTypeRanking/UserTypeRanking.vue";
 export default {
+  components: {
+    UserTypeRanking,
+  },
   data() {
     return {
       // 让ICP是否跟随数据
@@ -330,52 +275,6 @@ export default {
   }
 }
 
-.card-container-type {
-  padding: @cardPadding;
-  display: flex;
-  flex-direction: column;
-  font-size: @fontSize;
-
-  .card-container-type-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-bottom: 5px;
-    border-bottom: 0.5px solid rgba(0, 0, 0, .09);
-
-    .card-container-type-header-month {
-      font-weight: 550;
-    }
-  }
-
-  .card-container-type-content {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
-    .card-container-type-content-left {
-      width: 30%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-    }
-
-    .card-container-type-content-center {
-      width: 100%;
-      display: flex;
-      padding: 0 10px;
-      flex-direction: column;
-
-      .card-container-type-content-center-price {
-        text-align: right;
-        padding-bottom: 5px;
-      }
-    }
-
-  }
-}
 
 .container {
   margin: 10px 15px;

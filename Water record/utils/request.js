@@ -8,9 +8,9 @@ let BASE_URL = ''
 let BASE_API = '/api'
 
 if (process.env.NODE_ENV === 'development') {
-	// BASE_URL = 'http://127.0.0.1:7000'
+	BASE_URL = 'http://127.0.0.1:7000'
 	// BASE_URL = 'http://192.168.217.200:7000'
-	BASE_URL = 'http://172.20.10.2:7000'
+	// BASE_URL = 'http://172.20.10.2:7000'
 } else {
 	BASE_URL = 'https://water.api.gzykzy.top'
 }
