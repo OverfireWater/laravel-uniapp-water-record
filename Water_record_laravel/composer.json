@@ -6,13 +6,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "ext-pdo": "*",
         "firebase/php-jwt": "^6.8",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
+        "laravel/octane": "^1.5",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "predis/predis": "^2.2",
-      "ext-pdo": "*"
+        "spiral/roadrunner": "^2.8.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
