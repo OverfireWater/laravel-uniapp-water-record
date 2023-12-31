@@ -7,23 +7,11 @@ use Illuminate\Support\Facades\Mail;
 
 class SendMail
 {
-    private static $ins;
 
     public function __construct(
         private string $email = '',
     )
     {}
-
-    /**
-     * @param string $email 收件人的邮箱
-     * */
-    public static function getIns(string $email)
-    {
-        if (!isset(self::$ins)) {
-            self::$ins = new self($email);
-        }
-        return self::$ins;
-    }
 
     public function sendToMail()
     {
@@ -45,7 +33,7 @@ class SendMail
      * @param int $code 验证码
      * @return int number 200:success | 400:error 存储失败
      * */
-    private function setCaptchaToRedis(int $code)
+    private function setCaptchaToRedis(int $code): int
     {
         $arr = array('msg' => 'ok', 'code' => $code, 'datetime' => time());
         //                                                  秒
@@ -61,7 +49,7 @@ class SendMail
      * 校验验证码是否正确
      * @param int $user_code 用户输入的验证码
      * */
-    public function validateCaptcha(int $user_code)
+    public function validateCaptcha(int $user_code): int
     {
         $cache_data = Cache::get('login' . $this->email);
         if (!$cache_data) {

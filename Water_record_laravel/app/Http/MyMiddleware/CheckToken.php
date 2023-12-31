@@ -4,7 +4,6 @@ namespace App\Http\MyMiddleware;
 
 use App\Facade\TokenFacade;
 use App\TraitHelper\CodeMsgDataTrait;
-use App\Utils\SendJson;
 use Closure;
 use Illuminate\Http\Request;
 

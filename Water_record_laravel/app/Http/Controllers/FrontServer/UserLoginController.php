@@ -45,14 +45,15 @@ class UserLoginController extends Controller
             $old_time = $cache_data['datetime'];
             $new_time = time();
             $time = $new_time - $old_time;
-            // 如何时间小于30秒，则表示验证码频繁
+            // 如果时间小于30秒，则表示验证码频繁
             if ($time <= 30) {
                 $this->code = 201;
                 $this->msg = '验证码频繁';
-                return SendJson::getIns($this->code, $this->msg)->sendData();
+                return $this->sendJsonData();
             }
         }
-        $res = SendMail::getIns($email)->sendToMail();
+        $sendMailClass = new SendMail($email);
+        $res = $sendMailClass->sendToMail();
         if ($res == 200) {
             $this->code = 200;
             $this->msg = '验证码发送成功';
@@ -109,13 +110,11 @@ class UserLoginController extends Controller
     // 获取用户信息
     public function getUserInfo(Request $request)
     {
-        if ($request->has('tokenId')) {
-            $id = getTokenId($request);
-            $userInfo = w_user::find($id);
-            $array = array("name" => $userInfo->u_name, "email" => $userInfo->email, 'avatar' => $userInfo->avatar, 'created_time' => $userInfo->created_at);
-            $this->data = $array;
-            return $this->sendJsonData();
-        }
+        $id = getTokenId($request);
+        $userInfo = w_user::find($id);
+        $array = array("name" => $userInfo->u_name, "email" => $userInfo->email, 'avatar' => $userInfo->avatar, 'created_time' => $userInfo->created_at);
+        $this->data = $array;
+        return $this->sendJsonData();
     }
 
 //    退出登陆
