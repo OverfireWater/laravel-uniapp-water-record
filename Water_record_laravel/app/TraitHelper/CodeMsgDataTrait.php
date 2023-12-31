@@ -2,7 +2,8 @@
 
 namespace App\TraitHelper;
 
-use App\Utils\SendJson;
+use Symfony\Component\HttpFoundation\Response;
+
 trait CodeMsgDataTrait
 {
     /**
@@ -17,8 +18,10 @@ trait CodeMsgDataTrait
     )
     {}
 
-    public function sendJsonData(){
-        return SendJson::getIns($this->code, $this->msg, $this->data)();
+    public function sendJsonData():Response
+    {
+        $array = array("code"=>$this->code, "msg"=>$this->msg, "data"=>$this->data);
+        return response($array)->header('Content-Type','application/json;charset=utf-8');
     }
     public function __clone(): void
     {

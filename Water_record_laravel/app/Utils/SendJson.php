@@ -29,5 +29,4 @@ class SendJson
         $array = array("code"=>$this->code, "msg"=>$this->msg, "data"=>$this->data);
         return response($array)->header('Content-Type','application/json;charset=utf-8');
     }
-
 }
