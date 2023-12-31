@@ -72,7 +72,8 @@ class UserLoginController extends Controller
     {
         $email = $request->input('email');
         $captcha = $request->input('captcha');
-        $res = SendMail::getIns($email)->validateCaptcha($captcha);
+        $sendMailClass = new SendMail($email);
+        $res = $sendMailClass->validateCaptcha($captcha);
         switch ($res) {
             case 200:
                 $exits_user = w_user::where('email', $email);
