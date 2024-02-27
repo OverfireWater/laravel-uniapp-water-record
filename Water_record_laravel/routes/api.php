@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/gxySign/sendEmail',[\App\Http\Controllers\GongXueYunSignServer\GongXueYunSignController::class, 'sendMail']);
+
 // 前台路由
 Route::group([], function () {
 
